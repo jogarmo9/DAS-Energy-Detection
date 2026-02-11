@@ -1,0 +1,16 @@
+# Configuración del Pipeline de Detección de Eventos DAS
+
+# 1. Parámetros de procesamiento de señal
+signal:
+  target_fs: 1000       # Frecuencia de muestreo objetivo (Downsampling)
+  fmin: 5.0             # Límite inferior filtro pasabanda (Hz)
+  fmax: 80.0            # Límite superior filtro pasabanda (Hz)
+  sigma_2d: 1.2         # Intensidad del suavizado gaussiano 2D
+
+# 2. Parámetros del algoritmo de detección
+detection:
+  threshold: 3.0        # Sensibilidad (Z-score). Menor valor = más detecciones.
+  smooth_sec: 1.5       # Suavizado temporal del mapa de energía
+  min_duration_sec: 1.0 # Duración mínima del evento
+  min_sensors: 5        # Coherencia espacial mínima (sensores afectados)
+  clip_percentile: 2    # Recorte de outliers en amplitud
